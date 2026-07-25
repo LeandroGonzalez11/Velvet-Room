@@ -1,0 +1,1 @@
+import Link from "next/link"; export default function NotFound(){return <main className="grid min-h-screen place-items-center p-5 text-center"><div><p className="eyebrow">404</p><h1 className="mt-4 font-display text-5xl">Esta pieza no está aquí.</h1><Link className="mt-8 inline-block text-gold underline" href="/catalogo">Volver al catálogo</Link></div></main>}
