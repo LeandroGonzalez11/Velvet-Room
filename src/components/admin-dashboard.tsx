@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { AlertCircle, Check, ImagePlus, LoaderCircle, LogOut, PackagePlus, Pencil, Plus, Settings, X } from "lucide-react";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { BulkImporter } from "@/components/bulk-importer";
 
 type ImageRow = { id: string; storage_path: string };
 type Row = { id: string; name: string; description: string | null; price: number; stock: number; code: string | null; active: boolean; category_id: string | null; featured: boolean; is_new: boolean; offer: boolean; product_images: ImageRow[] };
