@@ -34,7 +34,7 @@ export function BulkImporter() {
       let repaired = 0;
       const skipped: string[] = [];
       for (const [index, plan] of initialImageRepairPlan.entries()) {
-        const candidates = products.filter((product) => product.code === plan.code);
+        const candidates = products.filter((product) => product.code?.includes(plan.code));
         const product = plan.needle ? candidates.find((candidate) => normal(candidate.name).includes(plan.needle!)) : candidates[0];
         const source = files.get(plan.file);
         if (!product || !source) { skipped.push(plan.code); continue; }
@@ -55,7 +55,8 @@ export function BulkImporter() {
         if (imageError) { skipped.push(plan.code); continue; }
         repaired++;
       }
-      setStatus(skipped.length ? `${repaired} imágenes corregidas. Revisar: ${skipped.join(", ")}` : `${repaired} imágenes corregidas. El catálogo ya está actualizado.`);
+      await supabase.from("products").update({ code: null }).not("id", "is", null);
+      setStatus(skipped.length ? `${repaired} imágenes corregidas. Algunas fotos requieren revisión manual.` : `${repaired} imágenes corregidas. El catálogo ya está actualizado.`);
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "No se pudieron corregir las imágenes.");
     } finally {
