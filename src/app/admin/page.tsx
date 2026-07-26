@@ -4,5 +4,5 @@ import { BulkImporter } from "@/components/bulk-importer";
 export const metadata = { title: "Administración" };
 
 export default function AdminPage() {
-  return <><BulkImporter done={() => undefined} /><AdminDashboard /></>;
+  return <><BulkImporter /><AdminDashboard /></>;
 }
