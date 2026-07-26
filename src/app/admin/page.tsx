@@ -1,8 +1,7 @@
-import { AdminDashboard } from "@/components/admin-dashboard";
-import { BulkImporter } from "@/components/bulk-importer";
+﻿import { AdminDashboard } from "@/components/admin-dashboard";
 
 export const metadata = { title: "Administración" };
 
 export default function AdminPage() {
-  return <><BulkImporter /><AdminDashboard /></>;
+  return <AdminDashboard />;
 }
