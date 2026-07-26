@@ -55,7 +55,6 @@ export function BulkImporter() {
         if (imageError) { skipped.push(plan.code); continue; }
         repaired++;
       }
-      await supabase.from("products").update({ code: null }).not("id", "is", null);
       setStatus(skipped.length ? `${repaired} imágenes corregidas. Algunas fotos requieren revisión manual.` : `${repaired} imágenes corregidas. El catálogo ya está actualizado.`);
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "No se pudieron corregir las imágenes.");
