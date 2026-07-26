@@ -1,2 +1,2 @@
-export type Category = "Lubricantes" | "Vibradores" | "Varitas" | "Plugs" | "BDSM" | "Lencería" | "Accesorios" | "Kits" | "Juegos" | "Cuidado íntimo" | "Masturbadores" | "Dildos";
-export type Product = { id: string; slug: string; name: string; description: string; price: number; category: Category; images: string[]; stock: number; code: string; isNew?: boolean; featured?: boolean; offer?: boolean; };
+export type ProductImage = { id: string; url: string; alt: string | null; sortOrder: number };
+export type Product = { id: string; slug: string; name: string; description: string | null; price: number; category: string; images: ProductImage[]; stock: number; code: string | null; isNew: boolean; featured: boolean; offer: boolean; active: boolean; createdAt: string };
