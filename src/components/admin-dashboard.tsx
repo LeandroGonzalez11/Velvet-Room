@@ -15,6 +15,7 @@ import {
   X,
 } from "lucide-react";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { KitsAdmin } from "@/components/kits-admin";
 
 type ImageRow = { id: string; storage_path: string };
 type Row = {
@@ -54,6 +55,7 @@ export function AdminDashboard() {
   const [message, setMessage] = useState("");
   const [rows, setRows] = useState<Row[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+  const [tab, setTab] = useState<"productos" | "kits">("productos");
   const [form, setForm] = useState(blank);
   const [selected, setSelected] = useState<Row | null>(null);
   const [files, setFiles] = useState<FileList | null>(null);
@@ -248,6 +250,26 @@ export function AdminDashboard() {
         </div>
       </header>
 
+      <div className="mx-auto flex max-w-7xl gap-3 px-5 pt-6 lg:px-10">
+        <button
+          onClick={() => setTab("productos")}
+          className={`rounded-full px-5 py-2 text-sm transition ${tab === "productos" ? "bg-gold text-velvet" : "border border-white/15 text-white/60 hover:border-white/40"}`}
+        >
+          Productos
+        </button>
+        <button
+          onClick={() => setTab("kits")}
+          className={`rounded-full px-5 py-2 text-sm transition ${tab === "kits" ? "bg-gold text-velvet" : "border border-white/15 text-white/60 hover:border-white/40"}`}
+        >
+          Kits
+        </button>
+      </div>
+
+      {tab === "kits" ? (
+        <div className="mx-auto max-w-7xl px-5 py-10 lg:px-10">
+          <KitsAdmin products={rows.map(row => ({ id: row.id, name: row.name, price: row.price }))} />
+        </div>
+      ) : (
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-10 lg:grid-cols-[1fr_390px] lg:px-10">
         <section>
           <div className="flex items-center justify-between">
@@ -409,6 +431,7 @@ export function AdminDashboard() {
           </form>
         </aside>
       </div>
+      )}
     </main>
   );
 }

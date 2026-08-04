@@ -5,7 +5,8 @@
 :root { --background: #0d0d0d; --foreground: #faf7f5; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--background); color: var(--foreground); font-family: Inter, Arial, sans-serif; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: Montserrat, Inter, Arial, sans-serif; }
+h1, h2, h3, .font-display { font-family: "Playfair Display", Georgia, serif; }
 ::selection { background: #b76e79; color: white; }
 .noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E"); }
 .eyebrow { color:#c9a66b; font-size:.68rem; letter-spacing:.23em; text-transform:uppercase; }
