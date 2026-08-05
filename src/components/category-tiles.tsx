@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const tiles = [
-  { title: "Juguetes", desc: "Explorá nuevas sensaciones.", href: "/catalogo?categoria=Vibradores", img: "/tiles/vibradores.jpg" },
-  { title: "Bienestar íntimo", desc: "Cuidá tu cuerpo, elevá tu placer.", href: "/catalogo?categoria=Lubricantes", img: "/tiles/bienestar.jpg" },
-  { title: "BDSM", desc: "Para explorar con confianza.", href: "/catalogo?categoria=BDSM", img: "/tiles/bdsm.jpg" },
+  { title: "Juguetes", desc: "Explorá nuevas sensaciones.", href: "/catalogo?tag=juguetes", img: "/tiles/vibradores.jpg" },
+  { title: "Bienestar íntimo", desc: "Cuidá tu cuerpo, elevá tu placer.", href: "/catalogo?tag=bienestar", img: "/tiles/bienestar.jpg" },
+  { title: "BDSM", desc: "Para explorar con confianza.", href: "/catalogo?tag=bdsm", img: "/tiles/bdsm.jpg" },
   { title: "Kits para parejas", desc: "Conexión, complicidad y placer compartido.", href: "/kits", img: "/tiles/kits.jpg" },
 ];
 
