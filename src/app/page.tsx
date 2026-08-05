@@ -21,7 +21,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <section className="relative flex min-h-[88vh] items-end overflow-hidden bg-black md:min-h-[calc(100vh-108px)]">
-          <Image src="/velvet-room-hero-v2.png" alt="Selección íntima premium Velvet Room" fill priority sizes="100vw" className="object-cover object-[68%_center] md:object-center" />
+          <Image src="/velvet-room-hero-v2.jpg" alt="Selección íntima premium Velvet Room" fill priority sizes="100vw" className="object-cover object-[68%_center] md:object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/25 to-transparent md:from-black/45" />
           <div className="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-40 md:pb-20">
             <p className="eyebrow flex items-center gap-2"><Sparkles size={12} className="text-gold" /> Boutique íntima · Uruguay</p>
@@ -77,7 +77,7 @@ export default function Home() {
         </section>
 
         <section className="relative overflow-hidden px-5 py-20 md:py-28">
-          <Image src="/velvet-room-hero.png" alt="" fill className="object-cover opacity-25" />
+          <Image src="/velvet-room-hero.jpg" alt="" fill className="object-cover opacity-25" />
           <div className="absolute inset-0 bg-black/70" />
           <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
             <h2 className="font-display text-3xl leading-tight md:text-5xl">Tu bienestar, tu placer, tu conexión.</h2>
