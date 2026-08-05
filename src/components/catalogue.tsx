@@ -1,12 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { usePublicProducts } from "@/lib/catalog";
 import { ProductCard } from "./product-card";
 
 export function Catalogue() {
-  const [query, setQuery] = useState(""), [category, setCategory] = useState("Todos"), [sort, setSort] = useState("recent");
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get("categoria") || "Todos";
+  const initialQuery = searchParams.get("buscar") || "";
+  const [query, setQuery] = useState(initialQuery), [category, setCategory] = useState(initialCategory), [sort, setSort] = useState("recent");
   const { products, loading, error } = usePublicProducts();
   const categories = ["Todos", ...Array.from(new Set(products.map(product => product.category)))];
   const result = useMemo(() => products.filter(product => (category === "Todos" || product.category === category) && product.name.toLowerCase().includes(query.toLowerCase())).sort((a, b) => sort === "low" ? a.price - b.price : sort === "high" ? b.price - a.price : sort === "name" ? a.name.localeCompare(b.name) : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()), [products, query, category, sort]);
